@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This is a simple frontend application for project 1 Computational mathematics course at CINVESTAV,Tamps.
 ## Available Scripts
 
 In the project directory, you can run:
