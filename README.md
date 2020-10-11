@@ -1,4 +1,4 @@
-This is a simple frontend application for project 1 Computational mathematics course at CINVESTAV,Tamps.
+This is a simple frontend application for Computational mathematics project at CINVESTAV,Tamps.
 ## Available Scripts
 
 In the project directory, you can run:
