@@ -1,0 +1,46 @@
+@import 'colors';
+.form-wrapper{
+    // background: red;
+    // position: relative;
+    // height: 540px;
+    // top:80%;
+    // transform: translate(0%,-80%);
+    // left: 0;
+}
+.btn-square {
+    $size:60px;
+    width:$size;
+    height: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease-out .5s;
+    &:active{
+        // height: 65px;
+        // width: 65px;
+        transform: scale(1.1);
+    }
+    &-wrapper{
+        display: flex;
+        position: absolute;
+        top:40%;
+        left: 50%;
+        transform: translate(-50%,-40%);
+    }
+    &--co{
+        background-color: $app-secondary;
+        margin-right: 10px;
+        &:hover{
+            background-color: lighten($app-secondary,5%);
+        }
+    }
+    &--bi{
+        background-color: $app-primary-dark;
+        &:hover{
+            background-color: darken($app-primary-dark,5%);
+        }
+    }
+}

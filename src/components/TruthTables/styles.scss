@@ -1,0 +1,42 @@
+@import 'colors';
+.tables-wrapper {
+    background: $app-primary;
+    // display: inline-block;
+    // display: flex;
+    // flex-grow: 0;
+    // flex-shrink: 0;
+    // flex-flow: ;
+    &-header{
+        color: #fff;
+        display: flex;
+        justify-content: space-around;
+        padding: 15px;
+        background-color: $app-secondary;
+    }
+}
+.truth-tables-wrapper{
+    // background: red;
+    display: flex;
+    // height: 200px;
+}
+.truth-table{
+    background: $app-secondary;
+    width: 50%;
+    // height: 500px;
+    color: #fff;
+    border: 1px solid #fff;
+    // height: 50%;
+    &-header{
+        background: $app-primary;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    &-ul {
+        list-style: none;
+        // width: 400px;
+    }
+    &-li {
+        font-size: 2.5rem;
+    }
+
+}

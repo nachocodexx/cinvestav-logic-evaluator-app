@@ -1,0 +1,31 @@
+@import 'colors';
+
+.start_button {
+    background-color: $app-accent;
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translate(-50%,-80%);
+    outline: none;
+    border: none;
+    $size:80px;
+    cursor: pointer;
+    height: $size;
+    width: $size+150px;
+    border-radius: 10px;
+    color: #fff;
+    text-transform: uppercase;
+    // font-weight: bold;
+    font-family: 'Quantico', sans-serif;
+    font-size: 1.2rem;
+    transition: background-color ease 1s,transform ease .5s;
+    &:hover{
+        background-color: darken($app-accent,5%);
+        // transform: sc translate(-50%,-80%);
+    }
+    &:active{
+        // transition: ;
+        transform: translate(-50%,-80%) scale(1.1);
+    }
+
+}

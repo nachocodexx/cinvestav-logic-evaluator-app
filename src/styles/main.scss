@@ -1,0 +1,55 @@
+@import "colors";
+* {
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.app-loader{
+    font-size: 70px;
+    color: $app-secondary;
+    display: block;
+    width: 100%;
+    // background: yellow;
+    // position:absolute;
+    // top:50%;
+    // left:50%;
+    // width: 100px;
+    // transform: translate(-50%,-50%);
+    // background: yellow;
+    // &,&-text{
+    // }
+    &-wrapper{
+        // background: rosybrown;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 85vh;
+    }
+    &-text{
+        color: #fff;
+        font-size: 3rem;
+        // position: absolute;
+        // top:60%;
+        // left: 50%;
+        // transform: translate(-50%,-60%);
+        // background: red;
+        padding: 10px;
+    }
+
+}
+.author {
+    color: rgba(#fff,.9);;
+    cursor: pointer;
+    position: absolute;
+    top:95%;
+    left: 50%;
+    transform: translate(-50%,-95%);
+    font-size: .8rem;
+    transition: all ease-out .3s;
+    &:hover{
+        color: darken(#fff,.3);
+        font-size: .9rem;
+    }
+}
