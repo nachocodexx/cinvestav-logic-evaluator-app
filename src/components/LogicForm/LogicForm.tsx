@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useBus } from 'ts-bus/react';
 import { showLoader, showTruthTables } from '../../events';
 import { LogicStatementInput } from '../LogicStatementInput/LogicStatementInput'
-import { StartButton } from '../StartButton';
+import { EvaluateButton } from '../StartButton';
 import { faLongArrowAltRight, faArrowsAltH } from '@fortawesome/free-solid-svg-icons'
 import './style.scss'
 
@@ -41,6 +41,6 @@ export function LogicForm() {
             </div>
         </div>
         <LogicStatementInput value={value} onChange={onChange} />
-        <StartButton onClick={onClick} />
+        <EvaluateButton onClick={onClick} />
     </div>
 }

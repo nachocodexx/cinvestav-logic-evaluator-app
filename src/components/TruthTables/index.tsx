@@ -5,6 +5,7 @@ import { closeTruthTables, CLOSE_TRUTH_TABLES, hideLoader, SHOW_TRUTH_TABLES } f
 import './styles.scss';
 import { AppLoader } from '../AppLoader/AppLoader';
 import { LOGIC_URL } from '../../config';
+import { ResultHeader } from './components/ResultHeader';
 
 function sendRequest(expression: string) {
     const fetchOptions: RequestInit = {
@@ -35,12 +36,24 @@ interface TruthTableData {
     title: string
     values: number[]
 }
-interface LogicExpressionResponse {
+enum ExpressionType {
+    NORMAL = 'normal',
+    MIXED = 'mixed',
+    ONLYNUMBERS = 'only-numbers'
+}
+interface Response {
+
+    expressionType: ExpressionType
+}
+interface OnlyNumbersExpressionResponse extends Response {
+    result: number
+}
+interface LogicExpressionResponse extends Response {
     expression: string;
-    isTautology: boolean;
-    isContingency: boolean;
-    isSatisfiable: boolean;
-    isContradiction: boolean;
+    isTautology: string;
+    isContingency: string;
+    isSatisfiable: string;
+    isContradiction: string;
     data: TruthTableData[]
 }
 
@@ -87,30 +100,29 @@ export function TruthTables() {
         ))
     }
 
-    return <animated.div onClick={onClick} className="tables-wrapper" style={props}>
-        <div>
-            {isFetched ? <header className="tables-wrapper-header">
-                <div>
-                    <p className="truth-table-question">Is it a tautology? <b>{data.isTautology}</b></p>
-                </div>
-                <div>
-                    <p className="truth-table-question">Is it a contradiction? <b>{data.isContradiction}</b></p>
-                </div>
-                <div>
-                    <p className="truth-table-question">Is it a contingency? <b>{data.isContingency}</b></p>
-                </div>
-                <div>
-                    <p className="truth-table-question">Is it a satisfiable?<b>{data.isSatisfiable}</b></p>
-                </div>
-            </header> : null}
-        </div>
-
-        {isFetched ?
-            <div className="truth-tables-wrapper">
-                {getTables()}
+    function renderResult() {
+        if (isFetched) {
+            if (data.expressionType === ExpressionType.ONLYNUMBERS) return <div className="onlynumbers-wrapper">
+                <p>{data.expression} = {(data as unknown as OnlyNumbersExpressionResponse).result}</p>
             </div>
-            // div getTables() 
-            : null}
-        {!isFetched ? <AppLoader /> : null}
+            return (<div className="truth-tables-wrapper">
+                {getTables()}
+            </div>)
+        }
+        else
+            return <AppLoader />
+    }
+    function renderHeader() {
+        if (isFetched) {
+            if (data.expressionType === ExpressionType.ONLYNUMBERS) return <ResultHeader />
+            const { isContingency, isContradiction, isSatisfiable, isTautology } = data
+            const result = { isContingency, isContradiction, isSatisfiable, isTautology }
+            return <ResultHeader data={result} />
+        } else return null
+    }
+
+    return <animated.div onClick={onClick} className="tables-wrapper" style={props}>
+        {renderHeader()}
+        {renderResult()}
     </animated.div>
 }

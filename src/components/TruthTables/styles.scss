@@ -10,7 +10,9 @@
         color: #fff;
         display: flex;
         justify-content: space-around;
-        padding: 15px;
+        // padding: 15px;
+        align-items: center;
+        height: 4rem;
         background-color: $app-secondary;
     }
 }
@@ -18,6 +20,16 @@
     // background: red;
     display: flex;
     // height: 200px;
+}
+.onlynumbers-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    p{
+        font-size: 4rem;
+    }
+    height: calc(100vh - 4rem);
 }
 .truth-table{
     background: $app-secondary;
